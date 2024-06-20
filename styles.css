@@ -29,6 +29,11 @@ body {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .flashcard-front {
