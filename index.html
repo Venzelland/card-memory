@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение слов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="counters">
+        <p id="remainingWords">Оставшиеся слова: 0</p>
+        <p id="learnedWords">Изученные слова: 0</p>
+    </div>
+    <div class="line1">
+        <button onclick="previousWord()">Previous Word</button>
+        <div class="flashcard">
+            <div class="flashcard-inner">
+                <div class="flashcard-front">
+                    <button onclick="showTranslation()">Show Translation</button>
+                    <p id="englishWord">English Word</p>
+                </div>
+                <div class="flashcard-back">
+                    <button onclick="hideTranslation()">Hide Translation</button>
+                    <p id="translation">Translation</p>
+                </div>
+            </div>
+        </div>
+        <button onclick="nextWord()">Next Word</button>
+    </div>
+
+    <button onclick="markAsLearned()">Mark as Learned</button>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
