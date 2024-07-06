@@ -8,15 +8,31 @@
 </head>
 <body>
 <div class="wrapper">
+    <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+    </select>
+    <div class="controls">
+        <select id="categorySelect">
+            <option value="work">Words about work</option>
+            <option value="animals">Words about animals</option>
+            <option value="colors">Colors</option>
+            <option value="verbs">Basic verbs</option>
+            <option value="irregular_verbs">Irregular verbs</option>
+            <option value="food_and_drinks">Food and drinks</option>
+            <option value="transport">Transport</option>
+        </select>
+        <button id="startLearningBtn" onclick="startLearning()">Start Learning</button>
+    </div>
     <div class="counters">
-        <p id="remainingWords">Оставшиеся слова: 0</p>
-        <p id="learnedWords">Изученные слова: 0</p>
+        <p id="remainingWords">Remaining words: 0</p>
+        <p id="learnedWords">Learned words: 0</p>
     </div>
     <div class="line1">
         <button onclick="previousWord()">Previous Word</button>
         <div class="flashcard">
             <div class="flashcard-inner">
-                <div class="flashcard-front"">
+                <div class="flashcard-front">
                     <button onclick="showTranslation()">Show Translation</button>
                     <p id="englishWord">English Word</p>
                 </div>
@@ -28,11 +44,8 @@
         </div>
         <button onclick="nextWord()">Next Word</button>
     </div>
-
     <button onclick="markAsLearned()">Mark as Learned</button>
 </div>
-
-
 <script src="script.js"></script>
 </body>
 </html>

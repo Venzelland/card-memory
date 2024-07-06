@@ -7,6 +7,7 @@ body {
     height: 100vh;
     margin: 0;
     font-size: 30px;
+
 }
 
 .flashcard {
@@ -102,4 +103,30 @@ button:hover {
 
 #learnedWords {
     color: #0a423d; /* Зеленый цвет */
+}
+
+select {
+    font-size: 18px;
+    color: #edf6f9;
+    background-color: #83c5be;
+    padding: 8px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+}
+
+select:focus {
+    outline: none;
+}
+
+#languageSelect {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
