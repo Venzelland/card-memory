@@ -13,30 +13,33 @@
         <option value="ru">Русский</option>
     </select>
     <div class="controls">
-        <select id="categorySelect">
-            <option value="work">Words about work</option>
-            <option value="animals">Words about animals</option>
+        <div id="topic">Choose a topic:</div>
+        <select id="categorySelect" onchange="startLearning()">
+            <option value="work">Work</option>
+            <option value="animals">Animals</option>
             <option value="colors">Colors</option>
             <option value="verbs">Basic verbs</option>
             <option value="irregular_verbs">Irregular verbs</option>
-            <option value="food_and_drinks">Food and drinks</option>
+            <option value="food_and_drinks">Food</option>
             <option value="transport">Transport</option>
+            <option value="clothing_and_accessories">Clothing</option>
+            <option value="nature_and_weather">Nature</option>
+            <option value="uncountable_nouns">Uncountable nouns</option>
         </select>
-        <button id="startLearningBtn" onclick="startLearning()">Start Learning</button>
     </div>
     <div class="counters">
-        <p id="remainingWords">Remaining words: 0</p>
-        <p id="learnedWords">Learned words: 0</p>
+        <p id="remainingWords">Remaining words:</p>
+        <p id="learnedWords">Learned words:</p>
     </div>
     <div class="line1">
         <button onclick="previousWord()">Previous Word</button>
         <div class="flashcard">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">
+            <div  class="flashcard-inner"  >
+                <div class="flashcard-front" onclick="showTranslation()">
                     <button onclick="showTranslation()">Show Translation</button>
                     <p id="englishWord">English Word</p>
                 </div>
-                <div class="flashcard-back" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <div onclick="hideTranslation()" class="flashcard-back" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                     <button onclick="hideTranslation()">Hide Translation</button>
                     <p id="translation">Translation</p>
                 </div>
