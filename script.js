@@ -603,20 +603,41 @@ let currentIndex = 0;
 let currentLanguage = 'ru';
 
 // Функция для начала изучения слов
+// function startLearning() {
+//     const categorySelect = document.getElementById('categorySelect');
+//     const selectedCategory = categorySelect.value;
+//     categorySelect.value = selectedCategory;
+//
+//     words = wordsArr[selectedCategory].map(word => ({...word, learned: false}));
+//     currentIndex = 0;
+//
+//     // Восстанавливаем состояние изученных слов из localStorage
+//     const storedLearnedWords = JSON.parse(localStorage.getItem('learnedWords')) || [];
+//     words = words.map(word => ({
+//         ...word,
+//         learned: storedLearnedWords.includes(word.english)
+//     }));
+//
+//     // Перемешиваем массив слов
+//     shuffleArray(words);
+//
+//     // Показываем первое слово
+//     showWord();
+//     updateCounters();
+// }
 function startLearning() {
     const categorySelect = document.getElementById('categorySelect');
     const selectedCategory = categorySelect.value;
-    categorySelect.value = selectedCategory;
 
-    words = wordsArr[selectedCategory].map(word => ({...word, learned: false}));
+    // Загружаем слова из выбранной категории
+    words = wordsArr[selectedCategory].map(word => ({ ...word, learned: false }));
     currentIndex = 0;
 
     // Восстанавливаем состояние изученных слов из localStorage
     const storedLearnedWords = JSON.parse(localStorage.getItem('learnedWords')) || [];
-    words = words.map(word => ({
-        ...word,
-        learned: storedLearnedWords.includes(word.english)
-    }));
+    words.forEach(word => {
+        word.learned = storedLearnedWords.includes(word.english);
+    });
 
     // Перемешиваем массив слов
     shuffleArray(words);
@@ -648,11 +669,11 @@ function changeLanguage() {
     document.querySelector('button[onclick="markAsLearned()"]').textContent = currentLanguage === 'ru' ? 'Отметить как изученное' : 'Mark as Learned';
     document.getElementById('englishWord').textContent = currentLanguage === 'ru' ? 'Английское слово' : 'English Word';
     document.getElementById('translation').textContent = currentLanguage === 'ru' ? 'Перевод слова' : 'Translation';
-    document.getElementById('topic').textContent = currentLanguage === 'ru' ? 'Выберите тему:' : 'Choose a topic:';
+    document.getElementById('title').textContent = currentLanguage === 'ru' ? 'Запоминание слов' : 'Memorizing words';
 
     const categorySelect = document.getElementById('categorySelect');
     const options = categorySelect.options;
-    options[0].textContent = currentLanguage === 'ru' ? 'Работа' : 'Work';
+    options[0].textContent = currentLanguage === 'ru' ? 'Выберите тему' : 'Choose a topic';
     options[1].textContent = currentLanguage === 'ru' ? 'Животные' : 'Animals';
     options[2].textContent = currentLanguage === 'ru' ? 'Цвета' : 'Colors';
     options[3].textContent = currentLanguage === 'ru' ? 'Основные глаголы' : 'Basic verbs';
@@ -662,6 +683,7 @@ function changeLanguage() {
     options[7].textContent = currentLanguage === 'ru' ? 'Одежда' : 'Clothing';
     options[8].textContent = currentLanguage === 'ru' ? 'Природа' : 'Nature';
     options[9].textContent = currentLanguage === 'ru' ? 'Неисчисляемые существительные' : 'Uncountable nouns';
+    options[10].textContent = currentLanguage === 'ru' ? 'Работа' : 'Work';
     showWord();
     updateCounters();
 }

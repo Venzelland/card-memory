@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Изучение слов</title>
+    <title id="title">Memorizing words</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="free-icon-brain-882998.svg">
 </head>
 <body>
 <div class="wrapper">
@@ -13,9 +14,8 @@
         <option value="ru">Русский</option>
     </select>
     <div class="controls">
-        <div id="topic">Choose a topic:</div>
         <select id="categorySelect" onchange="startLearning()">
-            <option value="work">Work</option>
+            <option value="">Choose a topic</option>
             <option value="animals">Animals</option>
             <option value="colors">Colors</option>
             <option value="verbs">Basic verbs</option>
@@ -25,6 +25,7 @@
             <option value="clothing_and_accessories">Clothing</option>
             <option value="nature_and_weather">Nature</option>
             <option value="uncountable_nouns">Uncountable nouns</option>
+            <option value="work">Work</option>
         </select>
     </div>
     <div class="counters">
